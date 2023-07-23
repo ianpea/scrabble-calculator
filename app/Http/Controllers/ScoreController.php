@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class ScoreController extends Controller {
     public function store(Request $request) {
-        $score = $this->calculateScore($request->word);
+        $score = $this->computeScore($request->word);
         if ($score != $request->score) {
             return response()->make("Score mismatch: " . $score . " and " . $request->score, 400);
         }
@@ -30,7 +30,7 @@ class ScoreController extends Controller {
         return Score::orderBy('score', 'desc')->paginate($total);
     }
 
-    public function calculateScore($word): int {
+    public function computeScore($word): int {
         $result = 0;
         $scoreMaps = Config::get('constants')['score_maps'];
 
@@ -43,9 +43,5 @@ class ScoreController extends Controller {
             }
         }
         return $result;
-    }
-
-    public function test() {
-        return print_r(Config::get('constants'), true);
     }
 }

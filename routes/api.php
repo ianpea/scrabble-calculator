@@ -20,11 +20,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-
-// Route::get('scores/{id}', function ($id) {
-//     return Score::find($id);
-// });
 Route::get('scores/top/{total}', [ScoreController::class, 'top']);
 
 
-Route::post('scores',[ScoreController::class, 'store']);
+Route::post('scores', [ScoreController::class, 'store']);
