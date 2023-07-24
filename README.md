@@ -1,66 +1,105 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Scrabble Calculator (Laravel)
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
 
-## About Laravel
+## MacOS
+### Prerequisites
+Docker Desktop, PHP, Composer installed on your mac.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### Deploy Steps
+Using terminal, in project root folder, run below commands to prepare the backend.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+1) Convert .env.localhost to .env using this command 
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+        mv .env.localhost .env
 
-## Learning Laravel
+2) Install dependencies
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+        composer install
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+3) Start the Laravel & MySQL containers using below command
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+        ./vendor/bin/sail up
+4) Once the dockers are up you can check via `docker ps -a` or view them via the `Docker Desktop software`.
 
-## Laravel Sponsors
+5) Run the database migration to generate a clean database.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+        ./vendor/bin/sail artisan migrate
 
-### Premium Partners
+6) Once everything is up and running, test the backend using the command below.
+    
+        ./vendor/bin/sail artisan test
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+7) To stop the containers, run 
 
-## Contributing
+        ./vendor/bin/sail down 
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+8) To stop and remove the containers + volumes, run
 
-## Code of Conduct
+        ./vendor/bin/sail down -v
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## Windows (WSL2 Docker Desktop)
+### Prerequisites (Windows)
+Docker WSL2 (Windows Subsystem for Linux)
+### Prerequisites (WSL2 Ubuntu After Installation of Docker)
+Composer, PHP 
 
-## Security Vulnerabilities
+### Installation Steps
+1) <b>Install Docker Desktop on Windows</b>. Docker run in a Linux env, which is why we need to install WSL2 (Windows Subsystem for Linux) on our windows machine to simulate an env for Docker.
+2) In powershell, type and enter (this will set windows to use WSL2 as a default instead of WSL)
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+        wsl --set-default-version 2
 
-## License
+3) Go to Microsoft store and install the Ubuntu distro v22.04 LTS.
+4) Once installed, you can start the distro via the <b>Microsoft store</b> or in powershell type
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+        wsl
+    if you hit any error after typing 'wsl', make sure you have selected the Ubuntu as default distro to run WSL with. To set it, run
+
+        wsl --setdefault <DistributionName>
+5) Once you are in, you can run your commands as usual in a Ubuntu/MacOS environment.
+6) #IMPORTANT# Remember to link your distro to Docker Desktop software by going to <u>Docker Desktop Settings > Resources > WSL Integration.</u>
+
+### Deploy Steps (In WSL2 Ubuntu's terminal)
+1) Navigate to the root project folder via mounts
+        
+        cd /mnt/<PATH_TO_UR_LARAVEL_BACKEND_FOLDER> 
+        (example): cd /mnt/d/apps/scrabble-calculator-laravel/
+
+2) Install php
+
+        sudo apt-get install php
+
+3) Install composer
+4) Install dependencies
+
+        composer install
+
+5) Start the Laravel & MySQL containers using below command
+
+        ./vendor/bin/sail up
+6) Once the dockers are up you can check via `docker ps -a` or view them via the `Docker Desktop software`.
+
+7) Run the database migration to generate a clean database.
+
+        ./vendor/bin/sail artisan migrate
+
+8) Once everything is up and running, test the backend using the command below.
+    
+        ./vendor/bin/sail artisan test
+
+9) To stop the containers, run 
+
+        ./vendor/bin/sail down 
+
+10) To stop and remove the containers + volumes, run
+
+        ./vendor/bin/sail down -v
+
+If you hit any error 
+
+## Expected Results
+### Database Migrations
+![Alt text](<SS 2023-07-24 at 23.21.12.png>)
+
+### Unit & Feature Tests
+![Alt text](<SS 2023-07-24 at 23.22.49.png>)
