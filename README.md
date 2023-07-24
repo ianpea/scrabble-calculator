@@ -39,7 +39,7 @@ Using terminal, in project root folder, run below commands to prepare the backen
 
 ## Windows (WSL2 Docker Desktop)
 ### Prerequisites (Windows)
-Docker WSL2 (Windows Subsystem for Linux)
+[Docker WSL2 (Windows Subsystem for Linux)](https://docs.docker.com/desktop/wsl/)
 ### Prerequisites (WSL2 Ubuntu After Installation of Docker)
 Composer, PHP 
 
@@ -57,9 +57,11 @@ Composer, PHP
 
         wsl --setdefault <DistributionName>
 5) Once you are in, you can run your commands as usual in a Ubuntu/MacOS environment.
-6) #IMPORTANT# Remember to link your distro to Docker Desktop software by going to <u>Docker Desktop Settings > Resources > WSL Integration.</u>
+
+<b>IMPORTANT REMINDER:  Remember to link your distro to Docker Desktop software </b>by going to [<u>Docker Desktop Settings > Resources > WSL Integration.</u>](https://docs.docker.com/desktop/wsl/) You may need to restart your Docker / Ubuntu for changes to take effect.
 
 ### Deploy Steps (In WSL2 Ubuntu's terminal)
+Login to your WSL2 distro:
 1) Navigate to the root project folder via mounts
         
         cd /mnt/<PATH_TO_UR_LARAVEL_BACKEND_FOLDER> 
