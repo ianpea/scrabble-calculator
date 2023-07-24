@@ -95,7 +95,15 @@ Composer, PHP
 
         ./vendor/bin/sail down -v
 
-If you hit any error 
+If you hit any error such as:
+
+- chmod() operation not permitted, double check if you have the below options in the conf file of your WSL2 
+        
+        etc/wsl.conf 
+    and insert the below config options:
+
+        [automount]
+        options = "metadata"
 
 ## Expected Results
 ### Database Migrations
