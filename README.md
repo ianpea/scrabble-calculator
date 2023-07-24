@@ -108,8 +108,11 @@ If you hit any error such as:
         options = "metadata"
 
 ## Expected Results
-### Database Migrations
+### Docker (`vendor/bin/sail up`)
+![Alt text](<SS 2023-07-25 at 07.49.41.png>)
+
+### Database Migrations (`vendor/bin/sail artisan migrate`)
 ![Alt text](<SS 2023-07-24 at 23.21.12.png>)
 
-### Unit & Feature Tests
+### Unit & Feature Tests (`vendor/bin/sail artisan test`)
 ![Alt text](<SS 2023-07-24 at 23.22.49.png>)
