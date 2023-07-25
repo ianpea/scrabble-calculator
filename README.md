@@ -1,6 +1,7 @@
 # Scrabble Calculator (Laravel)
 
 ![Alt text](<SS 2023-07-25 at 22.27.57.png>)
+![Alt text](<SS 2023-07-25 at 22.41.33.png>)
 
 This is the backend of <i>Scrabble Calculator</i>.
 Download the source code into a folder using your preffered method. Follow the steps below to deploy it locally on MacOS or Windows.
