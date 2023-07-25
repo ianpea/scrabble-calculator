@@ -1,5 +1,23 @@
 # Scrabble Calculator (Laravel)
 
+![Alt text](<SS 2023-07-25 at 22.27.57.png>)
+
+This is the backend of <i>Scrabble Calculator</i>.
+Download the source code into a folder using your preffered method. Follow the steps below to deploy it locally on MacOS or Windows.
+
+<i>Scrabble Calculator</i> is a simple scrabble board with adjustable tiles, realtime scoring with score submission API. 
+
+### Version Info 2023-07-25
+Please feel free to use the latest version of the packages mentioned below. If anything failed, feel free to fallback to below versions.
+- ``Composer 2.5.8``
+- ``Laravel 10 / Sail v2.19.1`` 
+- ``PHP 8.2``
+
+## Table of Contents
+1. [MacOS](#macos)
+2. [Windows WSL2](#windows)
+3. [Expected Results](#expected-results)
+
 
 ## MacOS
 ### Prerequisites
@@ -19,6 +37,7 @@ Using terminal, in project root folder, run below commands to prepare the backen
 3) Start the Laravel & MySQL containers using below command
 
         ./vendor/bin/sail up
+
 4) Once the dockers are up you can check via `docker ps -a` or view them via the `Docker Desktop software`.
 
 5) Run the database migration to generate a clean database.
@@ -37,7 +56,8 @@ Using terminal, in project root folder, run below commands to prepare the backen
 
         ./vendor/bin/sail down -v
 
-## Windows (WSL2 Docker Desktop)
+## Windows 
+(WSL2 Docker Desktop)
 ### Prerequisites (Windows)
 [Docker WSL2 (Windows Subsystem for Linux)](https://docs.docker.com/desktop/wsl/)
 ### Prerequisites (WSL2 Ubuntu After Installation of Docker)
@@ -108,11 +128,14 @@ If you hit any error such as:
         options = "metadata"
 
 ## Expected Results
-### Docker (`vendor/bin/sail up`)
+### Docker 
+(`vendor/bin/sail up`)
 ![Alt text](<SS 2023-07-25 at 07.49.41.png>)
 
-### Database Migrations (`vendor/bin/sail artisan migrate`)
+### Database Migrations
+(`vendor/bin/sail artisan migrate`)
 ![Alt text](<SS 2023-07-24 at 23.21.12.png>)
 
-### Unit & Feature Tests (`vendor/bin/sail artisan test`)
+### Unit & Feature Tests
+(`vendor/bin/sail artisan test`)
 ![Alt text](<SS 2023-07-24 at 23.22.49.png>)
