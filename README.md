@@ -61,7 +61,7 @@ Using terminal, in project root folder, run below commands to prepare the backen
 (WSL2 Docker Desktop)
 ### Prerequisites (Windows)
 [Docker WSL2 (Windows Subsystem for Linux)](https://docs.docker.com/desktop/wsl/)
-### Prerequisites (WSL2 Ubuntu After Installation of Docker)
+### Prerequisites (Inside WSL2 Ubuntu After Installation of Docker)
 Composer, PHP 
 
 ### Installation Steps
