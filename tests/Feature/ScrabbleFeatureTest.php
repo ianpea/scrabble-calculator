@@ -30,7 +30,20 @@ class ScrabbleFeatureTest extends TestCase {
     }
 
     public function test_loadable_top_score(): void {
-        $response = $this->get('api/scores/top/10');
+        $response = $this->get('api/scores/top?perPage=10&pageNo=1');
         $response->assertStatus(200);
+    }
+
+
+    public function test_compute_score_is_correct(): void {
+        $data = ['word' => 'EXCITING', 'score' => 18]; // correct score for word
+        $response = $this->post('api/scores', $data);
+        $response->assertStatus(201);
+    }
+
+    public function test_compute_score_is_wrong(): void {
+        $data = ['word' => 'EXCITING', 'score' => 19]; // wrong score for word
+        $response = $this->post('api/scores', $data);
+        $response->assertStatus(400);
     }
 }

@@ -30,6 +30,12 @@ class ScoreController extends Controller {
         return Score::orderBy('score', 'desc')->paginate($total);
     }
 
+    public function topTest(Request $request) {
+        $perPage = $request->query('perPage');
+        $pageNo = $request->query('pageNo');
+        return Score::orderBy('score', 'desc')->paginate($perPage, ['*'],  'page', $pageNo);
+    }
+
     public function computeScore($word): int {
         $result = 0;
         $scoreMaps = Config::get('constants')['score_maps'];

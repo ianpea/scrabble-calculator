@@ -9,7 +9,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 class ScrabbleUnitTest extends TestCase {
     use RefreshDatabase;
 
-    public function test_compute_score_is_correct(): void {
+    public function test_compute_score_unit_test(): void {
         $data = ['word' => 'CAT', 'score' => 5]; // correct score for word
         $scoreControllerInstance = new ScoreController();
         $response = $scoreControllerInstance->computeScore($data['word']);
